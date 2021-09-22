@@ -79,3 +79,7 @@
   height: 60%;
   padding-top: 5px;
 }
+.songdetailsimage {
+  object-fit: contain;
+  width: 30%;
+}
