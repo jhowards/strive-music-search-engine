@@ -1,8 +1,8 @@
-import { Card, Container, Spinner, Button, Col } from "react-bootstrap";
+import { Card, Container, Spinner, Button, ListGroup } from "react-bootstrap";
 import { useParams } from "react-router";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Signer } from "crypto";
+import { stringify } from "querystring";
 
 interface Song {
   id: number;
@@ -17,6 +17,7 @@ interface Song {
   release_date: string;
   rank: number;
   duration: number;
+  preview: string;
 }
 
 const SongDetails = () => {
@@ -35,6 +36,7 @@ const SongDetails = () => {
     },
     rank: 0,
     duration: 0,
+    preview: "",
   });
 
   useEffect(() => {
@@ -85,12 +87,30 @@ const SongDetails = () => {
               alt=""
             />
             <h2 className="mt-2">{resultsObject.title}</h2>
-            <div>Artist: {resultsObject.artist.name}</div>
-            <div>Album: {resultsObject.album.title}</div>
-            <div>Release Date: {resultsObject.release_date}</div>
-            <div>Duration: {resultsObject.duration}</div>
-            <div>Rank: {resultsObject.rank}</div>
+            <ListGroup className="w-50 mt-2 mx-auto">
+              <ListGroup.Item>
+                {" "}
+                <div>Artist: {resultsObject.artist.name}</div>
+              </ListGroup.Item>
+              <ListGroup.Item>
+                <div>Album: {resultsObject.album.title}</div>
+              </ListGroup.Item>
+              <ListGroup.Item>
+                <div>Release Date: {resultsObject.release_date}</div>
+              </ListGroup.Item>
+              <ListGroup.Item>
+                <div>Duration: {resultsObject.duration} seconds</div>
+              </ListGroup.Item>
+              <ListGroup.Item>
+                <div>Rank: {resultsObject.rank}</div>
+              </ListGroup.Item>
+            </ListGroup>
             <h3 className="mt-3">Preview:</h3>
+
+            <audio controls className="mx-auto w-50 mt-2">
+              <source src={resultsObject.preview} type="audio/mpeg"></source>
+              Your browser does not support the audio tag.
+            </audio>
           </>
         )}
       </Card>
