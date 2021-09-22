@@ -2,7 +2,6 @@ import { Card, Container, Spinner, Button, ListGroup } from "react-bootstrap";
 import { useParams } from "react-router";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { stringify } from "querystring";
 
 interface Song {
   id: number;
@@ -23,6 +22,7 @@ interface Song {
 const SongDetails = () => {
   let song_id: any = useParams();
   const [isLoading, setisLoading] = useState(false);
+  const [convertedDuration, setconvertedDuration] = useState("");
   const [resultsObject, setresultsObject] = useState<Song>({
     id: 0,
     title: "",
@@ -58,8 +58,21 @@ const SongDetails = () => {
         setisLoading(false);
       }
     };
+
     getArray();
   }, []);
+
+  useEffect(() => {
+    const convertSeconds = () => {
+      let duration: number = resultsObject.duration;
+      let minutes: string | number = Math.floor(duration / 60);
+      let seconds: string | number = duration - minutes * 60;
+      setconvertedDuration(
+        minutes.toString() + " minutes and " + seconds.toString() + " seconds"
+      );
+    };
+    convertSeconds(); // This is be executed when `loading` state changes
+  }, [isLoading]);
 
   return (
     <Container>
@@ -99,7 +112,7 @@ const SongDetails = () => {
                 <div>Release Date: {resultsObject.release_date}</div>
               </ListGroup.Item>
               <ListGroup.Item>
-                <div>Duration: {resultsObject.duration} seconds</div>
+                <div>Duration: {convertedDuration}</div>
               </ListGroup.Item>
               <ListGroup.Item>
                 <div>Rank: {resultsObject.rank}</div>
