@@ -36,3 +36,46 @@
     transform: rotate(360deg);
   }
 }
+
+.jobCard:hover {
+  background-color: rgba(26, 102, 153, 0.212);
+}
+.containerborder {
+  height: 97vh;
+  margin-top: 1.5vh;
+  margin-bottom: 0.5vh;
+  overflow-y: scroll;
+}
+
+.jobcard:hover {
+  cursor: pointer;
+  user-select: none;
+}
+
+.favouritecompanybutton {
+  position: absolute;
+  right: 10px;
+  top: 20px;
+}
+
+.backbutton {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+}
+
+.removebutton {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.favcompanylist:empty {
+  display: none;
+}
+
+.cardImage {
+  object-fit: contain;
+  height: 60%;
+  padding-top: 5px;
+}
