@@ -83,3 +83,7 @@
   object-fit: contain;
   width: 30%;
 }
+
+.nounderline:hover {
+  text-decoration: none;
+}

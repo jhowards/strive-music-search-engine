@@ -9,9 +9,9 @@ interface ComponentProps {
 const SingleSearch = ({ search, id }: ComponentProps) => {
   return (
     <>
-      <Link to={"song/" + search.id}>
+      <Link to={"song/" + search.id} className="nounderline">
         <Card
-          className="m-2 jobCard"
+          className="m-2 jobCard "
           style={{
             height: "260px",
             border: "3px solid black",

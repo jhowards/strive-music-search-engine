@@ -31,6 +31,7 @@ const MusicCards = () => {
       if (musicresponse.length === 0) {
         alert("Nothing found with this title!");
       }
+
       setresultsArray(musicresponse.data);
       console.log(resultsArray);
       setisLoading(false);
