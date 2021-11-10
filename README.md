@@ -1,46 +1,43 @@
-# Getting Started with Create React App
+# Brief
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Music Search Engine
 
-## Available Scripts
+Today you'll create a new TypeScript application from scratch.
 
-In the project directory, you can run:
+Fulfill the requirements and try to implement as best as you can typings and interfaces.
 
-### `npm start`
+ 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The application will be a Music Search Engine!
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Implement a nice main page with an input field for the search and re-use the same page to show the search results.
 
-### `npm test`
+ 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Clicking on any result should bring the user on a detail page, which will fetch the data for that particular track. Show on this detail page information you consider relevant about the song (i.e. title, album, duration ecc.)
 
-### `npm run build`
+ 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+API INFO:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+For the main search use
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+https://striveschool-api.herokuapp.com/api/deezer/search?q=whatever
 
-### `npm run eject`
+to get the results.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+ 
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Use the id property of any resulting track to fetch detail information with
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+https://striveschool-api.herokuapp.com/api/deezer/track/:id
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+ 
 
-## Learn More
+HINTS:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- As usual split your application in many reusable components
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Implement props & state interfaces for each one of them
+
+- Skip the Redux approach and fetch data directly in your components and store them in local states (we didn't had the chance to talk about Redux typings)
